@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>SearchTube - YouTube Search Engine</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="container">
@@ -13,13 +13,15 @@
 		</header>
 
 		<main>
-			<div class="searchbar">
 				<form onsubmit="return search()" id="searchform" name="searchform">
 					<div class="fieldcontainer">
-						<input type="search" id="query" class="searchfield">
+						<input type="search" id="query" class="searchfield" placeholder="Search videos...">
+						<input type="submit" name="searchbtn" id="searchbtn" value="submit!">
 					</div>
 				</form>
-			</div>
+
+				<ul id="results"></ul>
+				<div class="buttons"></div>
 		</main>
 
 		<footer>
