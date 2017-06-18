@@ -83,10 +83,10 @@ function getOutput(item) {
 
 	var output = '<li>' +
 	'<div class="list-left">' + 
-	'<img src="' + thumbnails + '"/>' +
+	'<a href="https://youtube.com/watch?v=' + videoId + '"><img src="' + thumbnails + '"/></a>' +
 	'</div>' + 
 	'<div class="list-right">' +
-	'<h3>' + title + '</h3>' +
+	'<h3><a href="https://youtube.com/watch?v=' + videoId + '">' + title + '</a></h3>' +
 	'<small>By <span class="channelTitle">' + channelTitle + '</span> on ' + videoDate + '</small>' +
 	'<p>' + description + '</p>' +
 	'</div>' + 
@@ -109,4 +109,92 @@ function getButtons(prevPageToken, nextPageToken) {
 	}
 
 	return btnOutput;
+}
+
+// Next Page Button 
+function nextPage() {
+	var token = $('#next-button').data('token');
+	var q = $('#next-button').data('query');
+
+		// Clear Results
+	$('#results').html('');
+	$('#buttons').html('');
+
+	//Get Form Input
+	q = $('#query').val();
+
+	//Run GET Request on API
+	$.get(
+		'https://www.googleapis.com/youtube/v3/search', {
+		part: 'snippet, id',
+		q: q,
+		pageToken: token,
+		type: 'video',
+		key: 'AIzaSyDNWZzft1jXR2MVPHoEvUn2wVGzlfHkRTE'
+	},
+		function(data) {
+			var nextPageToken = data.nextPageToken;
+			var prevPageToken = data.prevPageToken;
+
+			// Log Data to Make Sure It Works
+			console.log(data);
+
+			$.each(data.items, function(i, item) {
+				// Get Output of Each Loop
+				var output = getOutput(item);
+
+
+				//Display Search Results
+				$('#results').append(output);
+			});
+
+			var buttons = getButtons(prevPageToken, nextPageToken);
+
+			//Display Buttons 
+			$('#buttons').append(buttons);
+		});
+}
+
+// Previous Page Button
+function prevPage() {
+	var token = $('#prev-button').data('token');
+	var q = $('#prev-button').data('query');
+
+		// Clear Results
+	$('#results').html('');
+	$('#buttons').html('');
+
+	//Get Form Input
+	q = $('#query').val();
+
+	//Run GET Request on API
+	$.get(
+		'https://www.googleapis.com/youtube/v3/search', {
+		part: 'snippet, id',
+		q: q,
+		pageToken: token,
+		type: 'video',
+		key: 'AIzaSyDNWZzft1jXR2MVPHoEvUn2wVGzlfHkRTE'
+	},
+		function(data) {
+			var nextPageToken = data.nextPageToken;
+			var prevPageToken = data.prevPageToken;
+
+			// Log Data to Make Sure It Works
+			console.log(data);
+
+			$.each(data.items, function(i, item) {
+				// Get Output of Each Loop
+				var output = getOutput(item);
+
+
+				//Display Search Results
+				$('#results').append(output);
+			});
+
+			var buttons = getButtons(prevPageToken, nextPageToken);
+
+			//Display Buttons 
+			$('#buttons').append(buttons);
+		});
 }
