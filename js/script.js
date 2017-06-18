@@ -1,5 +1,5 @@
 $(document).ready(() => {
-
+	
 	$(function() {
 		// Search Bar Handler
 		var searchField = $('#query');
@@ -25,5 +25,35 @@ $(document).ready(() => {
 				}, 500, function() {});
 			}
 		});
+
+		$('#searchform').submit(function(e) {
+			e.preventDefault();
+		});
 	});
 });
+
+function search() {
+		// Clear Results
+		$('#results').html('');
+		$('#buttons').html('');
+
+		//Get Form Input
+		q = $('#query').val();
+
+		//Run GET Request on API
+		$.get(
+			'https://www.googleapis.com/youtube/v3/search', {
+			part: 'snippet, id',
+			q: q,
+			type: 'video',
+			key: 'AIzaSyDNWZzft1jXR2MVPHoEvUn2wVGzlfHkRTE'
+		},
+			function(data) {
+				var nextPageToken = data.nextPageToken;
+				var prevPageToken = data.prevPageToken;
+
+				console.log(data);
+
+				// $.each(data.items) {}
+			});
+}
