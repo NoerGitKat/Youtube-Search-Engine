@@ -1,29 +1,59 @@
-/** {
+* {
 	margin: 0;
 	padding: 0;
 }
-*/
+
+html {
+	height: 100%;
+	width: 100%;
+}
+
 body {
-	background-color: #25cece;
+	background: #5ddddd; /* Old browsers */
+	background: -moz-linear-gradient(top, #5ddddd 0%, #29b8e5 100%, #bce0ee 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #5ddddd 0%,#29b8e5 100%,#bce0ee 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #5ddddd 0%,#29b8e5 100%,#bce0ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;	
+}
+
+.wrap {
+	background: #5ddddd; /* Old browsers */
+	background: -moz-linear-gradient(top, #5ddddd 0%, #29b8e5 100%, #bce0ee 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, #5ddddd 0%,#29b8e5 100%,#bce0ee 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, #5ddddd 0%,#29b8e5 100%,#bce0ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	overflow-x: hidden;	
+}
+
+a {
+	text-decoration: none;
+	color: black;
 }
 
 .container {
-	margin: 0 auto;
+	margin: 20px auto;
 	width: 50%;
 	background-color: white;
 	font-family: Garamond, Times, serif;
+	border: 1px solid black;
 }
 
 .container header, footer {
 	background-color: #2ae0e0;
+	opacity: 0.8;
 }
 
 header {
-	padding: 5px 30px;
+	padding: 20px 30px;
+	border-bottom: 1px solid black;
 }
 
 header h1 {
-	margin-bottom: 0;
 }
 
 header span {
@@ -31,16 +61,19 @@ header span {
 }
 
 header h4 {
-	margin-top: 0;
 	font-weight: normal;
 }
 
 footer {
+	margin-top: 20px;
 	text-align: center;
+	border-top: 1px solid black;
+
 }
 
 footer h5 {
-	padding: 10px;
+	padding: 20px;
+	margin-bottom: 0;
 }
 
 .fieldcontainer {
@@ -82,4 +115,30 @@ footer h5 {
 
 #searchbtn:hover {
 	opacity: 0.9;
+}
+
+.list-left {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.list-right {
+	padding: 0 25px;
+	margin-top: 0;
+}
+
+.list-right h3 {
+	margin-top: -15px;
+}
+
+#results li {
+	list-style-type: none;
+}
+
+#results li img {
+	width: 90%;
+	border: 1px solid #2ae0e0;
+	background-color: #2ae0e0;
+	padding: 10px;
+	border-radius: 10px;
 }

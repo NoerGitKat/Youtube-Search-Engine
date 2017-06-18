@@ -6,27 +6,29 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="container">
-		<header>
-			<h1>Search<span>Tube</span></h1>
-			<h4>Search any video on YouTube</h4>
-		</header>
+	<div class="wrap">
+		<div class="container">
+			<header>
+				<h1><a href="index.html">Search<span>Tube</span></a></h1>
+				<h4>Search any video on YouTube</h4>
+			</header>
 
-		<main>
-				<form onsubmit="return search()" id="searchform" name="searchform">
-					<div class="fieldcontainer">
-						<input type="search" id="query" class="searchfield" placeholder="Search videos...">
-						<input type="submit" name="searchbtn" id="searchbtn" value=''>
-					</div>
-				</form>
+			<main>
+					<form onsubmit="return search()" id="searchform" name="searchform">
+						<div class="fieldcontainer">
+							<input type="search" id="query" class="searchfield" placeholder="Search videos...">
+							<input type="submit" name="searchbtn" id="searchbtn" value=''>
+						</div>
+					</form>
 
-				<ul id="results"></ul>
-				<div id="buttons"></div>
-		</main>
+					<ul id="results"></ul>
+					<div id="buttons"></div>
+			</main>
 
-		<footer>
-			<h5>Copyright &copy; 2017 So Wow Inc. All Rights Reserved.</h5>
-		</footer>
+			<footer>
+				<h5>Copyright &copy; 2017 So Wow Inc. All Rights Reserved.</h5>
+			</footer>
+		</div>
 	</div>
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/script.js"></script>
