@@ -1,0 +1,1 @@
+This is an exercise in how to work with API's. In this case I used the Google YouTube API, in which I created my own version of a YouTube search engine. the user can type in a topic and the page will display the five top hits in a list on the same page. I used jQuery to do this. Styling is done with vanilla CSS.
